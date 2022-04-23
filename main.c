@@ -74,7 +74,7 @@ void __interrupt() isr (void){
     
     
     if(PIR1bits.ADIF){              // Fue interrupci?n del ADC?
-        if(ADCON0bits.CHS == 12){    // Verificamos sea AN0 el canal seleccionado
+        if(ADCON0bits.CHS == 12){    // Verificamos sea AN12 el canal seleccionado
             PORTA = ADRESH;         // Mostramos ADRESH en PORTC 
         }
         
@@ -157,9 +157,9 @@ void setup(void){
     
     // CONFIGURACION ADC
     ADCON0bits.ADCS = 0b01;     // Fosc/8
-    ADCON1bits.VCFG0 = 0;       // VDD
-    ADCON1bits.VCFG1 = 0;       // VSS
-    ADCON0bits.CHS = 12;    // Seleccionamos el AN0
+    ADCON1bits.VCFG0 = 0;       // VDD 
+    ADCON1bits.VCFG1 = 0;       // VSS 
+    ADCON0bits.CHS = 12;    // Seleccionamos el AN12
     
     
     ADCON1bits.ADFM = 0;        // Justificado a la izquierda
